@@ -1,12 +1,16 @@
-console.log(sessionStorage);
-
 console.log(sessionStorage.token);
+const sectionElement = document.querySelector(".main");
 
 let token = sessionStorage.token;
-token = "fdsfdsfasdf";
 
 if (token === undefined) {
     console.log("Please present proof");
+
+    const header = document.createElement("h1");
+    header.innerText = "Please login to view page";
+    sectionElement.appendChild(header);
+    console.log(sectionElement);
+
 }   else {
     console.log("Continue Please");
 }

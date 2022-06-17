@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container__header {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1rem;
+  border: 1px solid black;
+  width: 20rem;
+  padding: 2rem;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+}
+.form__submit {
+  background-color: aqua;
+  border-style: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.form__submit:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+  color: white;
+}
+.form__link {
+  text-decoration: none;
+  color: black;
+  align-self: center;
+}
+.form__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}/*# sourceMappingURL=login.css.map */

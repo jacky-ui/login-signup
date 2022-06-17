@@ -9,6 +9,9 @@ userInput.addEventListener("submit", (event) => {
 
     if (!username || !password) {
         console.log("Please fill in all fields");
+        const missingField = document.createElement("h2");
+        missingField.innerText = "All fields are required";
+        userInput.appendChild(missingField);
     }   else {
         console.log("Success");
     }

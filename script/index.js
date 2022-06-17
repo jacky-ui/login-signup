@@ -22,4 +22,8 @@ if (token === undefined) {
 
 }   else {
     console.log("Continue Please");
+    const headElement = document.createElement("h1");
+    headElement.innerText = "Welcome to your dashboard!";
+
+    sectionElement.appendChild(headElement);
 }

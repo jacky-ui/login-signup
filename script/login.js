@@ -8,11 +8,19 @@ userInput.addEventListener("submit", (event) => {
     console.log(username, password);
 
     if (!username || !password) {
-        console.log("Please fill in all fields");
+
         const missingField = document.createElement("h2");
         missingField.innerText = "All fields are required";
         userInput.appendChild(missingField);
     }   else {
         console.log("Success");
+        axios
+            .post("http://localhost:8080", {
+                "username": username,
+                "password": password
+            })
+            .then((response) => {
+                console.log(response);
+            })
     }
-})
+});

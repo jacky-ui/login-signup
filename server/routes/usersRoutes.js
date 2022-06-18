@@ -8,7 +8,8 @@ router.use(bodyParser.urlencoded({
   }));
 
 router.post("/login", (req, res) => {
-    console.log(req.body);
+    const { username, password } = req.body;
+    console.log(username, password);
     res.status(200).send("Login successful!");
 })
 

@@ -9,8 +9,13 @@ router.use(bodyParser.urlencoded({
 
 router.post("/login", (req, res) => {
     const { username, password } = req.body;
-    console.log(username, password);
-    res.status(200).send("Login successful!");
+
+    if (!username || !password) {
+        res.status(400).send("Please enter in all fields!");
+    }
+        else {
+            res.status(200).send("Login successful!");
+        }
 })
 
 module.exports = router;

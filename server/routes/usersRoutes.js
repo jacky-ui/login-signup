@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const utils = require("../utils");
+const jwt = require("jsonwebtoken");
+const { JWT_KEY } = process.env;
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -21,7 +23,13 @@ router.post("/login", (req, res) => {
             console.log("User not found");
             return res.status(400).send("Username invalid!");
         }
-        console.log(foundUser);
+        const token = jwt.sign (
+            { id: foundUser.id, user: foundUser.username },
+            JWT_KEY,
+            {expiresIn: "24h"}
+        );
+        console.log(token);
+        // Will have to function to check if bcrypt password matches entered password
 
         res.status(200).send("Login successful!");
 

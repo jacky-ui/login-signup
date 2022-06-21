@@ -15,12 +15,16 @@ router.post("/login", (req, res) => {
     if (!username || !password) {
         res.status(400).send("Please enter in all fields!");
     }
-        else {
-            const usersData = utils.readUsers();
-            
-            console.log(usersData);
-            res.status(200).send("Login successful!");
+        const usersData = utils.readUsers();
+        let foundUser = usersData.find((user) => user.username === username);
+        if(foundUser === undefined) {
+            console.log("User not found");
+            return res.status(400).send("Username invalid!");
         }
+        console.log(foundUser);
+
+        res.status(200).send("Login successful!");
+
 });
 
 module.exports = router;

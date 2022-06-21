@@ -6,7 +6,10 @@ require("dotenv").config();
 const { PORT } = process.env;
 const usersRoutes = require("./routes/usersRoutes");
 
+// Using cors and json files
 app.use(cors());
+app.use(express.json());
+app.use(express.static("assets"));
 
 // Routes for different requests
 app.use("/", usersRoutes);

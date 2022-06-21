@@ -17,6 +17,7 @@ router.post("/login", (req, res) => {
     }
         else {
             const usersData = utils.readUsers();
+            
             console.log(usersData);
             res.status(200).send("Login successful!");
         }

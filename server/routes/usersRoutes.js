@@ -11,6 +11,10 @@ router.use(bodyParser.urlencoded({
     extended: true
   }));
 
+router.post("/signup", (req, res) => {
+    console.log(req.body);
+})
+
 router.post("/login", (req, res) => {
     const { username, password } = req.body;
 

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const utils = require("../utils");
 const jwt = require("jsonwebtoken");
 const { JWT_KEY } = process.env;
+const bcrypt = require("bcrypt");
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -12,8 +13,15 @@ router.use(bodyParser.urlencoded({
   }));
 
 router.post("/signup", (req, res) => {
-    console.log(req.body);
-})
+    const { username, password } = req.body
+    console.log(username, password);
+
+    if(!username || !password) {
+        res.status(400).send("Please enter in all fields!");
+    }
+        const hashedPassword = bcrypt.hashSync(password, 12);
+        console.log(hashedPassword);
+});
 
 router.post("/login", (req, res) => {
     const { username, password } = req.body;

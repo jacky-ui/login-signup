@@ -14,13 +14,20 @@ router.use(bodyParser.urlencoded({
 
 router.post("/signup", (req, res) => {
     const { username, password } = req.body
-    console.log(username, password);
 
     if(!username || !password) {
-        res.status(400).send("Please enter in all fields!");
+        return res.status(400).send("Please enter in all fields!");
+    }   else if (username === password) {
+        console.log("password not okay");
+        res.status(400).send("Username and Password must not be the same!");
     }
         const hashedPassword = bcrypt.hashSync(password, 12);
-        console.log(hashedPassword);
+
+        const newUser = {
+            "username": username, 
+            "password": hashedPassword,
+        };
+        console.log(newUser);
 });
 
 router.post("/login", (req, res) => {

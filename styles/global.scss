@@ -5,3 +5,57 @@
 body {
     margin: 0;
 }
+
+// Styling for login & sign up form
+.container {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        text-align: center;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+    border: 1px solid black;
+    width: 20rem;
+    padding: 2rem;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__submit {
+        background-color: aqua;
+        border-style: none;
+        border-radius: 5px;
+        padding: 1rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: cadetblue;
+            color: white;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: black;
+        align-self: center;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Form field error message
+.form__error {
+    margin: 0;
+}

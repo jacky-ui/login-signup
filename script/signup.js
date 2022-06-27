@@ -13,6 +13,14 @@ userForm.addEventListener("submit", (event) => {
         missingField.innerText = "All fields are required!!";
         userForm.appendChild(missingField);
 
-
-    } console.log("Account Created!");
+    } else {
+        axios
+            .post("http://localhost:8080/signup", {
+                "username": username,
+                "password": password,
+            })
+            .then((res) => {
+                console.log(res);
+            });
+    } 
 });

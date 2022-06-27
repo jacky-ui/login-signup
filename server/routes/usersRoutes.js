@@ -19,7 +19,7 @@ router.post("/signup", (req, res) => {
         return res.status(400).send("Please enter in all fields!");
     }   else if (username === password) {
         console.log("password not okay");
-        res.status(400).send("Username and Password must not be the same!");
+        return res.status(400).send("Username and Password must not be the same!");
     }
         const hashedPassword = bcrypt.hashSync(password, 12);
 

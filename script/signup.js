@@ -9,6 +9,10 @@ userForm.addEventListener("submit", (event) => {
     console.log(password);
 
     if(!username || !password) {
-        return console.log("All fields are required!");
+        const missingField = document.createElement("h2");
+        missingField.innerText = "All fields are required!!";
+        userForm.appendChild(missingField);
+
+
     } console.log("Account Created!");
 });

@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const utils = require("../utils");
 const jwt = require("jsonwebtoken");
 const { JWT_KEY } = process.env;
+const bcrypt = require("bcrypt");
+const uniqid = require("uniqid");
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -11,6 +13,31 @@ router.use(bodyParser.urlencoded({
     extended: true
   }));
 
+//   Route to hadle user sign up
+router.post("/signup", (req, res) => {
+    const { username, password } = req.body
+
+    if(!username || !password) {
+        return res.status(400).send("Please enter in all fields!");
+    }   
+        else if (username === password) {
+
+            return res.status(400).send("Username and Password must not be the same!");
+        }
+        const hashedPassword = bcrypt.hashSync(password, 12);
+
+        const newUser = {
+            "id": uniqid(),
+            "username": username, 
+            "password": hashedPassword,
+        };
+
+        const usersData = utils.readUsers();
+        usersData.push(newUser);
+        utils.writeUsers(usersData);
+});
+
+// Route to handle user login
 router.post("/login", (req, res) => {
     const { username, password } = req.body;
 

@@ -7,4 +7,10 @@ function readUsers() {
     return parsedUsers;
 };
 
-module.exports = { readUsers };
+// Function to write users to JSON file
+function writeUsers(newUser) {
+    const stringifiedUsers = JSON.stringify(newUser);
+    fs.writeFileSync("./data/users.json", stringifiedUsers);
+};
+
+module.exports = { readUsers, writeUsers };

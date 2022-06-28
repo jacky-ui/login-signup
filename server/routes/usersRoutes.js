@@ -34,6 +34,8 @@ router.post("/signup", (req, res) => {
         const usersData = utils.readUsers();
         usersData.push(newUser);
         utils.writeUsers(usersData);
+
+        return res.status(200).send("Account created!");
 });
 
 // Route to handle user login

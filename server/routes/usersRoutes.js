@@ -5,6 +5,7 @@ const utils = require("../utils");
 const jwt = require("jsonwebtoken");
 const { JWT_KEY } = process.env;
 const bcrypt = require("bcrypt");
+const uniqid = require("uniqid");
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -26,10 +27,12 @@ router.post("/signup", (req, res) => {
         const hashedPassword = bcrypt.hashSync(password, 12);
 
         const newUser = {
+            "id": uniqid(),
             "username": username, 
             "password": hashedPassword,
         };
 
+        const usersData = utils.readUsers();
         console.log(newUser);
 });
 

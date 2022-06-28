@@ -21,6 +21,12 @@ userForm.addEventListener("submit", (event) => {
             })
             .then((res) => {
                 console.log(res);
+            })
+            .catch((err) => {
+                const sameCredentials = document.createElement("h2");
+                sameCredentials.innerText = err.response.data;
+                sameCredentials.classList.add("form__error");
+                userForm.appendChild(sameCredentials);
             });
     } 
 });

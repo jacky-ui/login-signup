@@ -53,9 +53,9 @@ body {
             text-decoration: underline;
         }
     }
-}
-
-// Form field error message
-.form__error {
-    margin: 0;
+    // Form error message
+    &__error {
+        margin: 0;
+        background-color: red;
+    }
 }

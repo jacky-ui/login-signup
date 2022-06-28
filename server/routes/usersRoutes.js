@@ -33,7 +33,8 @@ router.post("/signup", (req, res) => {
         };
 
         const usersData = utils.readUsers();
-        console.log(newUser);
+        usersData.push(newUser);
+        utils.writeUsers(usersData);
 });
 
 // Route to handle user login

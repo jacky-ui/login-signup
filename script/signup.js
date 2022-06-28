@@ -1,17 +1,20 @@
 const userForm = document.querySelector("form");
 
+function createTag(tag, text, className) {
+    let element = document.createElement(tag);
+    element.innerText = text;
+    element.classList.add(className);
+    userForm.append(element);
+};
+
 userForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const username = event.target.username.value;
     const password = event.target.password.value;
-    console.log(username);
-    console.log(password);
 
     if(!username || !password) {
-        const missingField = document.createElement("h2");
-        missingField.innerText = "All fields are required!!";
-        userForm.appendChild(missingField);
+        createTag("h2", "All fields are required!!", "form__message");
 
     } else {
         axios
@@ -20,16 +23,10 @@ userForm.addEventListener("submit", (event) => {
                 "password": password,
             })
             .then((res) => {
-                const accountCreated = document.createElement("h2");
-                accountCreated.innerText = res.response.data;
-                accountCreated.classList.add("form__message");
-                userForm.appendChild(accountCreated);
+                createTag("h2", res.response.data, "form__message");
             })
             .catch((err) => {
-                const sameCredentials = document.createElement("h2");
-                sameCredentials.innerText = err.response.data;
-                sameCredentials.classList.add("form__message");
-                userForm.appendChild(sameCredentials);
+                createTag("h2", err.response.data, "form__message");
             });
     } 
 });

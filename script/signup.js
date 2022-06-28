@@ -20,12 +20,15 @@ userForm.addEventListener("submit", (event) => {
                 "password": password,
             })
             .then((res) => {
-                console.log(res);
+                const accountCreated = document.createElement("h2");
+                accountCreated.innerText = res.response.data;
+                accountCreated.classList.add("form__message");
+                userForm.appendChild(accountCreated);
             })
             .catch((err) => {
                 const sameCredentials = document.createElement("h2");
                 sameCredentials.innerText = err.response.data;
-                sameCredentials.classList.add("form__error");
+                sameCredentials.classList.add("form__message");
                 userForm.appendChild(sameCredentials);
             });
     } 

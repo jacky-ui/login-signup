@@ -1,5 +1,13 @@
 const userInput = document.querySelector("form");
 
+function createMessage(tag, text) {
+    let element = document.createElement(tag);
+    element.innerText = text;
+    userInput.appendChild(element);
+};
+
+createMessage("h2", "Hello world");
+
 userInput.addEventListener("submit", (event) => {
     event.preventDefault();
 

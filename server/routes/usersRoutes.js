@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({
     extended: true
   }));
 
-//   Route to hadle user sign up
+//   Route to handle user sign up
 router.post("/signup", (req, res) => {
     const { username, password } = req.body
 

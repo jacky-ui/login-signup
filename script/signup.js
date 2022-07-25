@@ -13,9 +13,12 @@ userForm.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
+    let testing = document.querySelector("h2");
+    console.log(testing);
+
     if(!username || !password) {
         createTag("h2", "All fields are required!!", "form__message");
-
+        
     } else {
         axios
             .post("http://localhost:8080/signup", {

@@ -7,7 +7,8 @@ function createTag(tag, text, className) {
     userForm.append(element);
 };
 
-let testing = 0;
+// Initialize and declare this variable to check if error message from sign up already exists.
+let duplicateMessageCheck = 0;
 
 userForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -15,12 +16,9 @@ userForm.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    console.log(testing)
-
-    if((!username || !password) && testing === 0) {
+    if((!username || !password) && duplicateMessageCheck === 0) {
         createTag("h2", "All fields are required!!", "form__message");
-        testing = 1;
-        // console.log(testing)
+        duplicateMessageCheck = 1;
         
     } else {
         axios

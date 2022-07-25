@@ -1,12 +1,14 @@
 const userInput = document.querySelector("form");
 
-function createMessage(tag, text) {
+function createMessage(tag, text, className) {
     let element = document.createElement(tag);
     element.innerText = text;
+    element.classList.add(className);
     userInput.appendChild(element);
 };
 
-createMessage("h2", "Hello world");
+// Initialize and declare this variable to check if error message from sign up already exists.
+let duplicateMessageCheck = 0;
 
 userInput.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -14,11 +16,10 @@ userInput.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    if (!username || !password) {
+    if ((!username || !password) && duplicateMessageCheck ===0) {
 
-        const missingField = document.createElement("h2");
-        missingField.innerText = "All fields are required";
-        userInput.appendChild(missingField);
+        createMessage("h2", "All fields are required", "form__message");
+        duplicateMessageCheck = 1;
     }   
         else {
             console.log("Success");

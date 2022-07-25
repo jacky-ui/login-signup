@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({
     extended: true
   }));
 
-//   Route to hadle user sign up
+//   Route to handle user sign up
 router.post("/signup", (req, res) => {
     const { username, password } = req.body
 
@@ -21,7 +21,6 @@ router.post("/signup", (req, res) => {
         return res.status(400).send("Please enter in all fields!");
     }   
         else if (username === password) {
-
             return res.status(400).send("Username and Password must not be the same!");
         }
         const hashedPassword = bcrypt.hashSync(password, 12);
@@ -35,6 +34,8 @@ router.post("/signup", (req, res) => {
         const usersData = utils.readUsers();
         usersData.push(newUser);
         utils.writeUsers(usersData);
+
+        return res.status(200).send("Account created!");
 });
 
 // Route to handle user login
@@ -55,7 +56,6 @@ router.post("/login", (req, res) => {
             JWT_KEY,
             {expiresIn: "24h"}
         );
-        console.log(token);
         // Will have to function to check if bcrypt password matches entered password
         // But first have to create sign up so testing user will begin with crypt password
 

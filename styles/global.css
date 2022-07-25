@@ -47,7 +47,7 @@ body {
   cursor: pointer;
   text-decoration: underline;
 }
-
-.form__error {
+.form__message {
   margin: 0;
+  background-color: red;
 }/*# sourceMappingURL=global.css.map */

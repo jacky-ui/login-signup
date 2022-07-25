@@ -7,17 +7,20 @@ function createTag(tag, text, className) {
     userForm.append(element);
 };
 
+let testing = 0;
+
 userForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    let testing = document.querySelector("h2");
-    console.log(testing);
+    console.log(testing)
 
-    if(!username || !password) {
+    if((!username || !password) && testing === 0) {
         createTag("h2", "All fields are required!!", "form__message");
+        testing = 1;
+        // console.log(testing)
         
     } else {
         axios

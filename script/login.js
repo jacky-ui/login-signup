@@ -16,21 +16,24 @@ userInput.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    if ((!username || !password) && duplicateMessageCheck ===0) {
+    if ((!username || !password) && duplicateMessageCheck === 0) {
 
         createMessage("h2", "All fields are required", "form__message");
         duplicateMessageCheck = 1;
     }   
         else {
-            console.log("Success");
-            console.log(username, password);
             axios
                 .post("http://localhost:8080/login", {
                     "username": username,
                     "password": password,
                 })
-                .then((response) => {
-                    console.log(response);
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((res) => {
+                    console.log(duplicateMessageCheck);
+                    duplicateMessageCheck === 0 ? createMessage("h2", res.response.data, "form__message"): " ";
+                    duplicateMessageCheck = 1;
                 })
         }
 });

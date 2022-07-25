@@ -31,7 +31,7 @@ userInput.addEventListener("submit", (event) => {
                     console.log(res);
                 })
                 .catch((res) => {
-                    console.log(duplicateMessageCheck);
+                    console.log(res.response.data)
                     duplicateMessageCheck === 0 ? createMessage("h2", res.response.data, "form__message"): " ";
                     duplicateMessageCheck = 1;
                 })

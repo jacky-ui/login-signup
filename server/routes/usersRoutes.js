@@ -47,10 +47,17 @@ router.post("/login", (req, res) => {
     }
         const usersData = utils.readUsers();
         let foundUser = usersData.find((user) => user.username === username);
+
         if(foundUser === undefined) {
-            console.log("User not found");
             return res.status(400).send("Username invalid!");
         }
+
+        const comparedPassword = bcrypt.compareSync(password, foundUser.password);
+
+        if(!comparedPassword) {
+            return res.status(400).send("Password invalid!");
+        } console.log("Right");
+
         const token = jwt.sign (
             { id: foundUser.id, user: foundUser.username },
             JWT_KEY,

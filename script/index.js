@@ -2,7 +2,8 @@
 const sectionElement = document.querySelector(".main");
 
 // Declare and assign token from sessionStorage to variable
-let token = sessionStorage.token;
+let token = sessionStorage.getItem(1);
+console.log(token)
 
 // Might make function here to create and append to sectionElement
 

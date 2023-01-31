@@ -1,14 +1,12 @@
 const userInput = document.querySelector("form");
+let errorMessageContain = document.querySelector("#form__error");
 
 function createMessage(tag, text, className) {
     let element = document.createElement(tag);
     element.innerText = text;
     element.classList.add(className);
-    userInput.appendChild(element);
+    errorMessageContain.appendChild(element);
 };
-
-// Initialize and declare this variable to check if error message from sign up already exists.
-let duplicateMessageCheck = 0;
 
 userInput.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -16,10 +14,9 @@ userInput.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    if ((!username || !password) && duplicateMessageCheck === 0) {
-
+    if ((!username || !password)) {
+        errorMessageContain.innerHTML = " ";
         createMessage("h2", "All fields are required", "form__message");
-        duplicateMessageCheck = 1;
     }   
         else {
             axios

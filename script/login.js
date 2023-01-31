@@ -29,9 +29,8 @@ userInput.addEventListener("submit", (event) => {
                     window.location.replace("https://www.google.com/");
                 })
                 .catch((res) => {
-                    console.log(res.response.data)
-                    duplicateMessageCheck === 0 ? createMessage("h2", res.response.data, "form__message"): " ";
-                    duplicateMessageCheck = 1;
+                    errorMessageContain.innerHTML = " ";
+                    createMessage("h2", res.response.data, "form__message");
                 })
         }
 });

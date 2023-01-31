@@ -56,8 +56,7 @@ router.post("/login", (req, res) => {
 
         if(!comparedPassword) {
             return res.status(400).send("Password invalid!");
-        } console.log("Right");
-
+        }
         const token = jwt.sign (
             { id: foundUser.id, user: foundUser.username },
             JWT_KEY,
@@ -66,8 +65,7 @@ router.post("/login", (req, res) => {
         // Will have to function to check if bcrypt password matches entered password
         // But first have to create sign up so testing user will begin with crypt password
 
-        res.status(200).send("Login successful!");
-
+        res.json({ token });
 });
 
 module.exports = router;

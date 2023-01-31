@@ -28,7 +28,8 @@ userInput.addEventListener("submit", (event) => {
                     "password": password,
                 })
                 .then((res) => {
-                    console.log(res);
+                    console.log(res.data.token);
+                    window.location.replace("https://www.google.com/");
                 })
                 .catch((res) => {
                     console.log(res.response.data)

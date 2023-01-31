@@ -1,4 +1,12 @@
 const userInput = document.querySelector("form");
+let errorMessageContain = document.querySelector("#form__error");
+
+function createMessage(tag, text, className) {
+    let element = document.createElement(tag);
+    element.innerText = text;
+    element.classList.add(className);
+    errorMessageContain.appendChild(element);
+};
 
 userInput.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -6,22 +14,23 @@ userInput.addEventListener("submit", (event) => {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    if (!username || !password) {
-
-        const missingField = document.createElement("h2");
-        missingField.innerText = "All fields are required";
-        userInput.appendChild(missingField);
+    if ((!username || !password)) {
+        errorMessageContain.innerHTML = " ";
+        createMessage("h2", "All fields are required", "form__message");
     }   
         else {
-            console.log("Success");
-            console.log(username, password);
             axios
                 .post("http://localhost:8080/login", {
                     "username": username,
                     "password": password,
                 })
-                .then((response) => {
-                    console.log(response);
+                .then((res) => {
+                    console.log(res.data.token);
+                    window.location.replace("https://www.google.com/");
+                })
+                .catch((res) => {
+                    errorMessageContain.innerHTML = " ";
+                    createMessage("h2", res.response.data, "form__message");
                 })
         }
 });

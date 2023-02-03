@@ -8,7 +8,7 @@ console.log(token)
 // Might make function here to create and append to sectionElement
 
 // Depending on status of token, different things will render on page
-if (token === undefined) {
+if (token === (undefined || null)) {
     console.log("Please present proof");
 
     const header = document.createElement("h1");

@@ -7,10 +7,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/global.css">
+        <script src="../script/signup.js" defer></script>
         <title>Sign Up</title>
 
     </head>
         <body>
-            
+            <section class="container">
+                <h1 class="container__header">Sign Up!</h1>
+                <form class="form">
+                    <div class="form__container">
+                        <label class="form__container--label" for="usernname">Create Username</label>
+                        <input class="form__container--input" type="text" name="username">
+                    </div>
+                    <div class="form__container">
+                        <label class="form__container--label" for="password">Create Password</label>
+                        <input class="form__container--input" type="password" name="password">
+                    </div>
+                    <button class="form__submit" type="submit">Create Account</button>
+                    <div id="form__error"></div>
+                </form>
+                <a class="form__link" href="./login.html">Return to login</a>
+            </section>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         </body>
     </html>

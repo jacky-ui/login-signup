@@ -3,7 +3,6 @@ const sectionElement = document.querySelector(".main");
 
 // Declare and assign token from sessionStorage to variable
 let token = sessionStorage.getItem(1);
-console.log(token)
 
 // Decode JWT for Username
 function parseJwt (token) {
@@ -20,7 +19,7 @@ function parseJwt (token) {
 
 // Depending on status of token, different things will render on page
 if (token === (undefined || null)) {
-    console.log("Please present proof");
+    console.error("Please present proof");
 
     const header = document.createElement("h1");
     header.innerText = "Please login to view page";
@@ -35,8 +34,8 @@ if (token === (undefined || null)) {
 }   else {
     console.log("Continue Please");
     let parsedToken = parseJwt(token);
+    let username = parsedToken.user;
     const headElement = document.createElement("h1");
-    headElement.innerText = "Welcome to your dashboard!";
-
+    headElement.innerText = `Welcome ${username} to your dashboard!`;
     sectionElement.appendChild(headElement);
 }

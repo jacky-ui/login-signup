@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
         const token = jwt.sign (
             { id: foundUser.id, user: foundUser.username },
             JWT_KEY,
-            {expiresIn: "24h"}
+            {expiresIn: "1h"}
         );
         // Will have to function to check if bcrypt password matches entered password
         // But first have to create sign up so testing user will begin with crypt password

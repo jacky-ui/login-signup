@@ -26,7 +26,9 @@ userInput.addEventListener("submit", (event) => {
                 })
                 .then((res) => {
                     console.log(res.data.token);
-                    window.location.replace("https://www.google.com/");
+                    const token = res.data.token;
+                    sessionStorage.setItem(1, token);
+                    window.location.replace("../index.html");
                 })
                 .catch((res) => {
                     errorMessageContain.innerHTML = " ";

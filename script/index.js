@@ -16,9 +16,6 @@ function parseJwt (token) {
     return JSON.parse(jsonPayload);
 };
 
-let parsedToken = parseJwt(token);
-console.log(parsedToken.user);
-
 // Might make function here to create and append to sectionElement
 
 // Depending on status of token, different things will render on page
@@ -37,6 +34,7 @@ if (token === (undefined || null)) {
 
 }   else {
     console.log("Continue Please");
+    let parsedToken = parseJwt(token);
     const headElement = document.createElement("h1");
     headElement.innerText = "Welcome to your dashboard!";
 

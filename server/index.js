@@ -14,6 +14,6 @@ app.use(express.static("assets"));
 // Routes for different requests
 app.use("/", usersRoutes);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });

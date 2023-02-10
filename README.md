@@ -34,3 +34,13 @@ Once cloned, you will need to insstall all the dependencies on the server side. 
 Finally, to run login-signup you would have to open your IDE, open the project folder if it isn't already open, then:
 
     npx index.js
+
+### `Environment Variables`
+
+To run this project, you will need to add the following environment variables to your .env file
+
+PORT: The port on your local machine on which you want to run the server. If you're not sure which port to use, a good default is 8080.
+
+URL: A URL path for HTTP requests. If you are running on your local machine, this should be set to http://localhost:<insert port>
+
+JWT_KEY: A series of random chracters that is used to encrypt the JWT token. This is used to authenticate users when a request is made.

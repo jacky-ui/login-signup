@@ -20,7 +20,7 @@ userInput.addEventListener("submit", (event) => {
     }   
         else {
             axios
-                .post("https://byzantium-cockatoo-hose.cyclic.app:5000/login", {
+                .post("https://byzantium-cockatoo-hose.cyclic.app/login", {
                     "username": username,
                     "password": password,
                 })

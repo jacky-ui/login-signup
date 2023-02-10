@@ -4,7 +4,9 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 // const { PORT } = process.env;
+const config = {headers: {'Access-Control-Allow-Origin': '*'}};
 const usersRoutes = require("./routes/usersRoutes");
+
 const PORT = process.env.PORT || 3000;
 // Using cors and json files
 app.use(cors());

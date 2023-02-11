@@ -16,6 +16,7 @@ router.use(bodyParser.urlencoded({
 //   Route to handle user sign up
 router.post("/signup", (req, res) => {
     const { username, password } = req.body
+    console.log(req.body);
 
     if(!username || !password) {
         return res.status(400).send("Please enter in all fields!");

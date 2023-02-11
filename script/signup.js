@@ -25,9 +25,12 @@ userForm.addEventListener("submit", (event) => {
             })
             .then((res) => {
                 createTag("h2", res.response.data, "form__message");
+                console.log(res.response.data)
+                console.log(res)
             })
             .catch((err) => {
                 createTag("h2", err.response.data, "form__message");
+                console.log(res)
             });
     } 
 });

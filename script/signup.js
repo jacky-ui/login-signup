@@ -19,7 +19,7 @@ userForm.addEventListener("submit", (event) => {
         createTag("h2", "All fields are required!!", "form__message");
     } else {
         axios
-            .post("http://localhost:8080/signup", {
+            .post("https://byzantium-cockatoo-hose.cyclic.app/signup", {
                 "username": username,
                 "password": password,
             })

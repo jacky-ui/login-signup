@@ -10,7 +10,7 @@ function readUsers() {
 // Function to write users to JSON file
 function writeUsers(newUser) {
     const stringifiedUsers = JSON.stringify(newUser);
-    fs.writeFileSync("server/assets/users.json", stringifiedUsers);
+    fs.writeFileSync("/tmp/users.json", stringifiedUsers);
 };
 
 module.exports = { readUsers, writeUsers };

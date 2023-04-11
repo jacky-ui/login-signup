@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("assets"));
 
-// Routes for different requests
+// Routes for different request
 app.use("/", usersRoutes);
 
 app.listen(process.env.PORT || 3000, () => {

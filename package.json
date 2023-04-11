@@ -1,6 +1,7 @@
 {
   "main": "server/index.js",
   "dependencies": {
+    "aws-sdk": "^2.1354.0",
     "nodemon": "^2.0.20"
   }
 }

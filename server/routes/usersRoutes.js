@@ -3,7 +3,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const utils = require("../utils");
 const jwt = require("jsonwebtoken");
-const { JWT_KEY } = process.env;
+const JWT_KEY = process.env.JWT_KEY;
 const bcrypt = require("bcrypt");
 const uniqid = require("uniqid");
 

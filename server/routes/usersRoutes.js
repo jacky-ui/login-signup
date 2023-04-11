@@ -64,7 +64,6 @@ router.post("/login", (req, res) => {
         );
         // Will have to function to check if bcrypt password matches entered password
         // But first have to create sign up so testing user will begin with crypt password
-
         res.json({ token });
 });
 

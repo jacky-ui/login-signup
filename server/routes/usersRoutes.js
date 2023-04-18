@@ -41,7 +41,7 @@ router.post("/signup", (req, res) => {
         // const usersData = utils.readUsers();
         // usersData.push(newUser);
         // utils.writeUsers(usersData);
-
+        console.log('Account created');
         return res.status(200).send("Account created!");
 });
 
@@ -52,8 +52,14 @@ router.post("/login", (req, res) => {
     if (!username || !password) {
         res.status(400).send("Please enter in all fields!");
     }
-        const usersData = utils.readUsers();
+        // const usersData = utils.readUsers();
+        let my_file = s3.getObject({
+            Bucket: "cyclic-byzantium-cockatoo-hose-ap-south-1",
+            Key: "server/assets/users.json",
+        });
+        const usersData = JSON.parse(my_file);
         let foundUser = usersData.find((user) => user.username === username);
+        // console.log(usersData);
 
         if(foundUser === undefined) {
             return res.status(400).send("Username invalid!");

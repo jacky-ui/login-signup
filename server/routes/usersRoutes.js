@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const JWT_KEY = process.env.JWT_KEY;
 const bcrypt = require("bcrypt");
 const uniqid = require("uniqid");
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -31,9 +33,14 @@ router.post("/signup", (req, res) => {
             "password": hashedPassword,
         };
 
-        const usersData = utils.readUsers();
-        usersData.push(newUser);
-        utils.writeUsers(usersData);
+        s3.putObject({
+            Body: JSON.stringify({key:newUser}),
+            Bucket: "cyclic-byzantium-cockatoo-hose-ap-south-1",
+            Key: "server/assets/users.json",
+        });
+        // const usersData = utils.readUsers();
+        // usersData.push(newUser);
+        // utils.writeUsers(usersData);
 
         return res.status(200).send("Account created!");
 });

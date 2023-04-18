@@ -58,6 +58,7 @@ router.post("/login", (req, res) => {
             Key: "server/assets/users.json",
         });
         const usersData = my_file;
+        console.log(typeof(usersData));
         let foundUser = usersData.find((user) => user.username === username);
         // console.log(usersData);
 

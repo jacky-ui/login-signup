@@ -57,7 +57,7 @@ router.post("/login", (req, res) => {
             Bucket: "cyclic-byzantium-cockatoo-hose-ap-south-1",
             Key: "server/assets/users.json",
         });
-        const usersData = JSON.parse(my_file);
+        const usersData = my_file;
         let foundUser = usersData.find((user) => user.username === username);
         // console.log(usersData);
 

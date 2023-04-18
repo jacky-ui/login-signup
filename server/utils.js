@@ -19,4 +19,4 @@ function readUsers() {
 //     fs.writeFileSync("server/assets/users.json", stringifiedUsers);
 // };
 
-module.exports = { readUsers, writeUsers };
+module.exports = { readUsers };

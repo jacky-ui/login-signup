@@ -57,10 +57,10 @@ router.post("/login", (req, res) => {
             Bucket: "cyclic-byzantium-cockatoo-hose-ap-south-1",
             Key: "server/assets/users.json",
         });
-        let usersData = [];
-        usersData.push(my_file.data)
-        console.log(my_file.data);
-        console.log(typeof(usersData));
+        // let usersData = [];
+        // usersData.push(my_file.data)
+        console.log(my_file);
+        // console.log(typeof(usersData));
         let foundUser = usersData.find((user) => user.username === username);
         // console.log(usersData);
 

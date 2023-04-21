@@ -34,7 +34,7 @@ router.post("/signup", (req, res) => {
         const usersData = utils.readUsers();
         usersData.push(newUser);
         utils.writeUsers(usersData);
-
+        console.log('Account created');
         return res.status(200).send("Account created!");
 });
 
@@ -62,9 +62,6 @@ router.post("/login", (req, res) => {
             JWT_KEY,
             {expiresIn: "1h"}
         );
-        // Will have to function to check if bcrypt password matches entered password
-        // But first have to create sign up so testing user will begin with crypt password
-
         res.json({ token });
 });
 

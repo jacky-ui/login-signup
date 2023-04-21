@@ -9,14 +9,9 @@ function readUsers() {
     return parsedUsers;
 };
 
-// Function to write users to JSON file
 function writeUsers(newUser) {
     const stringifiedUsers = JSON.stringify(newUser);
-    s3.writeFileSync("server/assets/users.json", stringifiedUsers);
+    fs.writeFileSync("server/assets/users.json", stringifiedUsers);
 };
-// function writeUsers(newUser) {
-//     const stringifiedUsers = JSON.stringify(newUser);
-//     fs.writeFileSync("server/assets/users.json", stringifiedUsers);
-// };
 
-module.exports = { readUsers, writeUsers };
+module.exports = { readUsers };
